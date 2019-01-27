@@ -19,9 +19,9 @@ before_install:
 - chmod 0600 /home/travis/.ssh/google_compute_engine
 - echo $GCE_CREDENTIALS_FILE
 script:
-- molecule create
-- molecule converge
-- molecule verify
+- molecule --debug create
+- molecule --debug converge
+- molecule --debug verify
 after_script:
 - molecule destroy
 notifications:
