@@ -1,1 +1,4 @@
 .yamllint
+credentials.json
+google_compute_engine*
+secrets.tar
