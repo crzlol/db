@@ -5,8 +5,8 @@ python:
 install:
 - pip install ansible==2.7.1 molecule==2.19.0 apache-libcloud pycrypto
 env:
-  matrix:
-  - GCE_CREDENTIALS_FILE="$(pwd)/credentials.json"
+#  matrix:
+#  - GCE_CREDENTIALS_FILE="$(pwd)/credentials.json"
   global:
   - secure: GcKQA5rgGvHQCJ4nR1WUN+qaslA6N1q8G7smKk1BI8RGX+kILhLUET2COzt0CV4dDD9gGyAuRtmWQAbSOL19joMCHRXp+vuoC0JBOLo7BhAfT9+ArOfTWxU7aNybPSg1/+n6EOvnlsr5RpFzENMlu9R9zxxLoeHhErEghCtz5Onr1kY7e6HusD8BUtUvkA2OaZ6CsRJ0vkqgOoSvJ7wq+3SKfHVNTfCSBJ5NB4RZ2NJZsjPFF1Gj/V7zz+4vyNYMNIpui55svTrP9GALAul9wRgf80n+VXrLpaBm2+afDJId41HaGdjUXMVCF7+6m1HkPlEXC1So3PkfRPS0OHoPD4phwddpGs4Yz0/Ba/ir5WLe85Dnr4EK/3BvM5Y6iyjB0Rt7lZ9x/lXRp9WRmx4xBabXsKbgIUrIVPiENkJ1uM1a1C6B2oE98QMeRUIMgnELvrF/f+IfoQ+JgoqeYv9UtkKDpdBDFQv65+dTaakhZY3unpLqntgXAOWd+229LwIUJXAE0bLInk2xuoker6IeaB2u2/BcC1TzG4h22hJWsQejoecQWKHsQBGhsIaR2RXcl9io3qZ6C5AyHt/etKgUo+WvdtNyOG5Pc50J+YYrhk9vlcb/BKxQIW7mOhpiIWp9Aq7/t6wvmmOoG+Rl6U7LtBynS8QZldG/lgyNCZRBB04=
   - secure: hmr9YtNKZOrxDcf5wXL4wmyMdPi4v1724BenIgDG4/47dRjjXHmTfH3iB62cvkDxtYjsj/EEQ2eb1pWM6C0AdYeawrOo9JUdmH7B+v8xPb2IGVm4Lo3QeT93OxRp47AFMBKsd5k9HeB6Jg1E7ydtH7I5rebjkrLFZ7w1MEfHrwIEgNS6PnCdlZHd2zmfZdSU4JYRgSB4CefQsT0/ckzelp0lYSLU0koeG5XtdjKNhb4g+2eAXNoInEgzyMnPY/R9LUDn1LayFKXq4Fz+ezCef6BfMWlKAF+ybQfwf0tkzNQRfYglD20DWLiertbCOflc3QlZdZN6Dw0XlH5MTOjh/nSMNXB6x+WVY7ohJI/R0mweRO3hQXwhnSgKbLaNBRlsvrHDqUy6BGRmhTEmpF7S83mF8Xo+t5gqs49N1H7xJjWnvnEYdYU9SWklCXLbP9QpJHbnkUPIKFpFHVtXonwYvoGYcKxW6b5GfVIZDI2Qjyyhu9k2dV2CRXD4ogEJNdr06YCTr/gw/EgIsXxU4BQBbfQcPRHOueX1SP/62d9P9J9WI5SaDYhBAQzlHdUpomVquJK16boDuMaUc0pjp/o8j5GsD9uKRuoxZgXQkb4HScNzzUVVcGonrjulYGFX9iWeLJl3vjusvQhUAe5MWlKtOTaFZVETAgbJaQUhGNsmyTM=
@@ -17,6 +17,7 @@ before_install:
 - tar xvf secrets.tar
 - mv google_compute_engine /home/travis/.ssh/
 - chmod 0600 /home/travis/.ssh/google_compute_engine
+- echo $GCE_CREDENTIALS_FILE
 script:
 - molecule create
 - molecule converge
