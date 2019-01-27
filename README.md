@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.com/crzlol/db.svg?branch=master)](https://travis-ci.com/crzlol/db)
 Role Name
 =========
 
